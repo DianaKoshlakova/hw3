@@ -20,33 +20,19 @@
 # вход подается только одно слово, которое содержит либо 
 # только английские, либо только русские буквы.
 
-english = {1:'AEIOULNSTR',
-      	2:'DG',
-      	3:'BCMP',
-      	4:'FHVWY',
-      	5:'K',
-      	8:'JZ',
-      	10:'QZ'}
-russian = {1:'АВЕИНОРСТ',
-      	2:'ДКЛМПУ',
-      	3:'БГЁЬЯ',
-      	4:'ЙЫ',
-      	5:'ЖЗХЦЧ',
-      	8:'ШЭЮ',
-      	10:'ФЩЪ'}
-a = int(input("Введите 0, если играем на русском, 1 - если на английском: "))
-sum = 0
+dic = {1:'AEIOULNSTRАВЕИНОРСТ',
+      	2:'DGДКЛМПУ',
+      	3:'BCMPБГЁЬЯ',
+      	4:'FHVWYЙЫ',
+      	5:'KЖЗХЦЧ',
+      	8:'JZШЭЮ',
+      	10:'QZФЩЪ'}
+
 word = input("Введите слово: ").upper()
-if a == 0 :
-    for i in word :
-        for key, m in russian.items() :
-           if i in m :
-               sum += key
-elif a == 1 :
-    for i in word :
-        for key, m in english.items() :
-            if i in m :
-                sum += key
-else :
-    print("Ошибка ввода")
+sum = 0
+
+for i in word :
+    for key, m in dic.items() :
+        if i in m :
+            sum += key
 print(f"За {word} вы получаете {sum} очков")
